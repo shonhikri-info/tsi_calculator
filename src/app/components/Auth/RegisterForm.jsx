@@ -85,7 +85,6 @@ export default function RegisterForm({ onSwitchToLogin, notify }) {
         notify(result.error, 'error');
       }
     } catch (error) {
-      console.error('Registration error:', error);
       notify('שגיאה בהרשמה', 'error');
     } finally {
       setLoading(false);

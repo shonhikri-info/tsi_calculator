@@ -62,7 +62,6 @@ export default function TradingJournal({ userId, onStatsUpdate }) {
         onStatsUpdate(userId);
       }
     } catch (error) {
-      console.error('Error loading trading data:', error);
       notify('שגיאה בטעינת נתוני המסחר', 'error');
     } finally {
       setLoading(false);
@@ -132,7 +131,7 @@ export default function TradingJournal({ userId, onStatsUpdate }) {
         onStatsUpdate(userId);
       }
     } catch (error) {
-      console.error('Error recalculating portfolio:', error);
+      // שגיאה בחישוב מחדש של התיק
     }
   };
 
@@ -191,7 +190,6 @@ export default function TradingJournal({ userId, onStatsUpdate }) {
         notify('שגיאה בשמירת העסקה', 'error');
       }
     } catch (error) {
-      console.error('Error saving trade:', error);
       notify('שגיאה בשמירת העסקה', 'error');
     } finally {
       setLoading(false);
@@ -212,7 +210,6 @@ export default function TradingJournal({ userId, onStatsUpdate }) {
           notify('שגיאה במחיקת העסקה', 'error');
         }
       } catch (error) {
-        console.error('Error deleting trade:', error);
         notify('שגיאה במחיקת העסקה', 'error');
       } finally {
         setLoading(false);
@@ -230,7 +227,6 @@ export default function TradingJournal({ userId, onStatsUpdate }) {
         markPortfolioUpdated();
         notify(`${stockSymbol} נמחק מהתיק`);
       } catch (error) {
-        console.error('Error deleting stock:', error);
         notify('שגיאה במחיקת המניה', 'error');
       } finally {
         setLoading(false);

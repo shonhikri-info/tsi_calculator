@@ -89,7 +89,7 @@ export default function DashboardHomePage() {
       setPortfolio(portfolioData || []);
       setPortfolioStats(stats);
     } catch (error) {
-      console.error('Error loading portfolio:', error);
+      // שגיאה בטעינת תיק השקעות
     } finally {
       setLoading(false);
     }

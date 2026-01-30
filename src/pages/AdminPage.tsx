@@ -50,7 +50,6 @@ export default function AdminPage() {
 
         setCurrentUser(user.uid);
       } catch (error) {
-        console.error('Error checking admin status:', error);
         notify('שגיאה בבדיקת הרשאות', 'error');
         sessionStorage.clear();
         navigate('/');

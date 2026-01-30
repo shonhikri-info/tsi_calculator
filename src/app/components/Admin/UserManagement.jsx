@@ -25,7 +25,6 @@ export default function UserManagement() {
       setUsers(usersData);
       calculateStats(usersData);
     } catch (error) {
-      console.error('Error loading users:', error);
       notify('שגיאה בטעינת נתוני המשתמשים', 'error');
     } finally {
       setLoading(false);

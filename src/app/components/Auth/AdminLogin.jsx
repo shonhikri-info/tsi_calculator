@@ -37,7 +37,6 @@ export default function AdminLogin({ onBackToMain, notify }) {
         notify(result.error, 'error');
       }
     } catch (error) {
-      console.error('Admin login error:', error);
       notify('שגיאה בהתחברות', 'error');
     } finally {
       setLoading(false);
