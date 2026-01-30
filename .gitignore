@@ -40,9 +40,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Firebase keys (sensitive!)
+# Firebase keys and migration scripts (sensitive!)
 *-firebase-key.json
 migrate-firebase.js
+migrate-auth.js
+
+# Claude Code temp files
+.claude/
 
 # Other
 nul
