@@ -42,51 +42,24 @@ export const getAllUsers = async () => {
   try {
     const usersSnapshot = await getDocs(collection(db, 'users'));
 
-    // דיבאג: הדפס מידע מפורט
     console.log('📊 getAllUsers - Total documents in Firestore:', usersSnapshot.size);
 
     const users = [];
-    let adminCount = 0;
-    let userCount = 0;
 
     usersSnapshot.forEach((d) => {
       const userData = d.data();
-
-      // ספור admins ו-users
-      if (userData.role === 'admin') {
-        adminCount++;
-        console.log('👤 Admin found:', { id: d.id, name: userData.name, email: userData.email });
-      } else {
-        userCount++;
-        console.log('👤 User found:', { id: d.id, name: userData.name, email: userData.email, role: userData.role });
-      }
-
-      // מסנן רק משתמשים רגילים (לא admins)
-      if (userData.role !== 'admin') {
-        users.push({
-          id: d.id,
-          ...userData
-        });
-      }
+      // מחזיר את כל המשתמשים כולל אדמינים
+      users.push({
+        id: d.id,
+        ...userData
+      });
     });
 
-    console.log('📈 Statistics:', {
-      totalInFirestore: usersSnapshot.size,
-      admins: adminCount,
-      regularUsers: userCount,
-      returningToUI: users.length
-    });
-
-    if (users.length === 0 && usersSnapshot.size > 0) {
-      console.warn('⚠️ WARNING: Firestore has users but getAllUsers is returning empty array!');
-      console.warn('⚠️ This might mean all users are admins, or there\'s a filtering issue.');
-    }
+    console.log('📈 Returning all users:', users.length);
 
     return users;
   } catch (error) {
     console.error('❌ Error in getAllUsers:', error);
-    console.error('Error code:', error.code);
-    console.error('Error message:', error.message);
     return [];
   }
 };

@@ -212,7 +212,7 @@ export default function UserManagement() {
           <thead>
             <tr>
               <th style={{ minWidth: '100px' }}>שם</th>
-              <th style={{ minWidth: '80px' }}>משתמש</th>
+              <th style={{ minWidth: '80px' }}>תפקיד</th>
               <th style={{ minWidth: '150px' }}>אימייל</th>
               <th style={{ minWidth: '100px' }}>טלפון</th>
               <th style={{ minWidth: '80px' }}>סטטוס</th>
@@ -238,8 +238,18 @@ export default function UserManagement() {
                 <tr key={user.id}>
                   <td style={{ fontWeight: '700', fontSize: '13px' }}>{user.name}</td>
                   <td>
-                    <span className="symbol-badge" style={{ fontSize: '11px', padding: '3px 6px' }}>
-                      {user.username || user.id}
+                    <span
+                      className="trade-badge"
+                      style={{
+                        backgroundColor: user.role === 'admin' ? '#9c27b020' : '#2196f320',
+                        color: user.role === 'admin' ? '#9c27b0' : '#2196f3',
+                        border: `1px solid ${user.role === 'admin' ? '#9c27b050' : '#2196f350'}`,
+                        fontSize: '11px',
+                        padding: '3px 8px',
+                        fontWeight: '700'
+                      }}
+                    >
+                      {user.role === 'admin' ? 'מנהל' : 'משתמש'}
                     </span>
                   </td>
                   <td style={{ 
