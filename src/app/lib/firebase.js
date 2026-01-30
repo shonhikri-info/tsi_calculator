@@ -4,12 +4,12 @@ import { getAuth } from 'firebase/auth';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBIXzBQK5mqiIj7EQe_cQtDPDQoUv2GXGo",
-  authDomain: "tsi-investment-app.firebaseapp.com",
-  projectId: "tsi-investment-app",
-  storageBucket: "tsi-investment-app.firebasestorage.app",
-  messagingSenderId: "192371856387",
-  appId: "1:192371856387:web:b25109feb8da46322fea36"
+  apiKey: "AIzaSyAYmL6Fm-8FaCw1LNV4yUDx1tCzPy_tVcM",
+  authDomain: "tsi-investment-app-61e75.firebaseapp.com",
+  projectId: "tsi-investment-app-61e75",
+  storageBucket: "tsi-investment-app-61e75.firebasestorage.app",
+  messagingSenderId: "160771557680",
+  appId: "1:160771557680:web:b32f413dc0e4ee58e260f5"
 };
 
 export const app = initializeApp(firebaseConfig);
