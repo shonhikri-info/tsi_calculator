@@ -239,9 +239,6 @@ export default function ManualCalc({ onCalculate }) {
       years: years
     };
     
-    // הדפס את הנתונים לדיבאג
-    console.log('Sending data:', calculationData);
-
     try {
       const freshFormulas = await loadFormulas();
       const formulasToSend = freshFormulas ? { ...DEFAULT_FORMULAS, ...freshFormulas } : DEFAULT_FORMULAS;

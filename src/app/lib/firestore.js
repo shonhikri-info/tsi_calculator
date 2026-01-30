@@ -41,25 +41,18 @@ export const getUser = async (userId) => {
 export const getAllUsers = async () => {
   try {
     const usersSnapshot = await getDocs(collection(db, 'users'));
-
-    console.log('📊 getAllUsers - Total documents in Firestore:', usersSnapshot.size);
-
     const users = [];
 
     usersSnapshot.forEach((d) => {
       const userData = d.data();
-      // מחזיר את כל המשתמשים כולל אדמינים
       users.push({
         id: d.id,
         ...userData
       });
     });
 
-    console.log('📈 Returning all users:', users.length);
-
     return users;
   } catch (error) {
-    console.error('❌ Error in getAllUsers:', error);
     return [];
   }
 };
